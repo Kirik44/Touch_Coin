@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TouchCoin.View.TrainingPage.TrainingPage2"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="BlueBackground.png"
+             BackgroundColor="#5994fc">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Ускорения" TextColor="White" FontSize="36" HorizontalTextAlignment="Center" Padding="0, 90, 0, 0" FontAttributes="Bold"/>
+            <Label Text="Пополняйте счёт без усилий - купите на TCoin ускорения и сможете зарабатывать валюту автоматически. При этом сервис должен оставаться включенным."
+                       TextColor="White" HorizontalTextAlignment="Center" Padding="16" FontSize="17"/>
+
+            <StackLayout Padding="20, 0, 20, 0" VerticalOptions="EndAndExpand" Spacing="0">
+                <Frame HasShadow="True" CornerRadius="10" Margin="15, 0, 15, 0" Padding="0">
+                    <Image Source="training2.png"/>
+                </Frame>
+
+                <Button Text="Всё понятно!" VerticalOptions="EndAndExpand" Margin="0, -15, 0, 30" Clicked="GoMain"
+                        TextColor="#2a50b0" BackgroundColor="White" CornerRadius="8"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

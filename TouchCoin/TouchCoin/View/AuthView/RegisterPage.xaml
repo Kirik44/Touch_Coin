@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TouchCoin.View.AuthPage.RegisterPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="BlueBackground.png">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" Padding="15" Spacing="0">
+            <ActivityIndicator HorizontalOptions="CenterAndExpand" IsRunning="False" x:Name="LoadIndicator" Color="White"/>
+            
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="0, 0, 0, 38">
+                <Label HorizontalOptions="CenterAndExpand" FontSize="30" FontAttributes="Bold" TextColor="White" Text="Регистрация" Margin="0, -50, 0, 50"/>
+                
+                <Frame Padding="2, 10, 2, 15" CornerRadius="15">
+                    <StackLayout>
+                        <Label Text="Nik Name" Padding="10, 12, 0, 0" FontSize="16" Margin="0, 0, 0, -38"/>
+                        <Entry MaxLength="16" HorizontalTextAlignment="Center" x:Name="Nick" TextColor="#2a50b0"/>
+
+                        <Label Text="Password" Padding="10, 30, 0, 0" FontSize="16" Margin="0, 0, 0, -38"/>
+                        <Entry MaxLength="20" HorizontalTextAlignment="Center" IsPassword="True" x:Name="Pass" TextColor="#2a50b0"/>
+                    </StackLayout>
+                </Frame>
+                
+                <Button Text="Войти" FontSize="18" CornerRadius="12" Margin="0, 14, 0, 0" Clicked="GoLogin" BackgroundColor="White" TextColor="#Blue" x:Name="BtnLogin" FontAttributes="Bold"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

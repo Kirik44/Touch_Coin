@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:TouchCoin.ViewModels"
+             xmlns:model="clr-namespace:TouchCoin.Models"
+             x:DataType="viewmodels:RatingViewModel"
+             x:Class="TouchCoin.View.RatingPage"
+             Title="Рейтинг">
+    <ContentPage.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <RefreshView Padding="0, 0, 0, 50" x:DataType="viewmodels:RatingViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <CollectionView x:Name="RatingViewModel" ItemsSource="{Binding Items}" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="8, 3, 0, 3" x:DataType="model:RatingModel" Orientation="Horizontal">
+                                <Label Text="{Binding Place}" WidthRequest="30" FontSize="20" TextColor="Black" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}"/>
+                                <Label Text="{Binding NikName}" FontSize="20" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}"/>
+                                <Label Text="{Binding Coin, StringFormat='{0:0.000} coin'}" FontSize="16" Padding="0, 4, 10, 0" LineBreakMode="NoWrap" HorizontalOptions="EndAndExpand" Style="{DynamicResource ListItemTextStyle}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" HeightRequest="50"
+                         VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="AliceBlue">
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1"  Color="Blue"/>
+                <Grid Padding="8, 0, 10, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Text="{Binding UserPlace}" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="20" TextColor="Black"/>
+                    <Label Text="Вы" Grid.Column="1" FontSize="20" LineBreakMode="NoWrap" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="{Binding UserCoin, StringFormat='{0:0.000} coin'}" Grid.Column="2" FontSize="16" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                </Grid>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

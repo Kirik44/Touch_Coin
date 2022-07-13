@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouchCoin.Android", "TouchCoin\TouchCoin.Android\TouchCoin.Android.csproj", "{83FDCF61-207C-4964-8915-E09E9EB39282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouchCoin", "TouchCoin\TouchCoin\TouchCoin.csproj", "{80E58E33-EE92-43A8-900B-6C8E84A47219}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83FDCF61-207C-4964-8915-E09E9EB39282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83FDCF61-207C-4964-8915-E09E9EB39282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83FDCF61-207C-4964-8915-E09E9EB39282}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{83FDCF61-207C-4964-8915-E09E9EB39282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83FDCF61-207C-4964-8915-E09E9EB39282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83FDCF61-207C-4964-8915-E09E9EB39282}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{80E58E33-EE92-43A8-900B-6C8E84A47219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80E58E33-EE92-43A8-900B-6C8E84A47219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80E58E33-EE92-43A8-900B-6C8E84A47219}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{80E58E33-EE92-43A8-900B-6C8E84A47219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80E58E33-EE92-43A8-900B-6C8E84A47219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80E58E33-EE92-43A8-900B-6C8E84A47219}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13204647-AF44-4F94-9197-6F87CB24D158}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TouchCoin.View.MainPage"
+             xmlns:viewmodels="clr-namespace:TouchCoin.ViewModels"
+             xmlns:model="clr-namespace:TouchCoin.Models"
+             x:DataType="viewmodels:MainViewModel"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Grid Padding="0, 10, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Ваш счёт" FontSize="20" HorizontalOptions="CenterAndExpand" Grid.Column="1"/>
+
+                    <StackLayout Orientation="Horizontal" Grid.Column="2" HorizontalOptions="CenterAndExpand" Spacing="2">
+                        <ImageButton Source="Setting.png" WidthRequest="30" Clicked="GoToAccount"/>
+                        <ImageButton Source="ExitBtn.png" WidthRequest="30" Clicked="GoExit"/>
+                    </StackLayout>
+                </Grid>
+
+                <Label Text="{Binding Coin, StringFormat='{0:0.000}'}" TextColor="Black" FontSize="40" HorizontalOptions="CenterAndExpand"/>
+
+                <Grid Margin="10, 0, 10, 15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+
+                    <ImageButton Source="TopIcon" WidthRequest="140" CornerRadius="10" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" Margin="2" Clicked="GoToRating"/>
+                    <ImageButton Source="UpdateIcon" WidthRequest="140" CornerRadius="10" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0" Margin="2" Command="{Binding SwitchByuMenu}"/>
+
+                    <Label Text="Рейтинг" Grid.Column="0" Grid.Row="1" FontSize="18" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Ускорения" Grid.Column="1" Grid.Row="1" FontSize="18" HorizontalOptions="CenterAndExpand"/>
+                </Grid>
+
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1"  Color="#B0C4DE" Margin="0, 0, 0, 10"/>
+
+                <Label Text="{Binding TicCoin, StringFormat='Автоматически: {0:0.000}/сек'}" FontSize="16" Padding="6"/>
+
+                <StackLayout HeightRequest="70">
+                    <CollectionView ItemsSource="{Binding MiningItems}" ItemsLayout="HorizontalList" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="0" HeightRequest="100">
+                                    <Frame BorderColor="Gray" CornerRadius="10" Padding="1" Margin="5, 0, 5, 0" HeightRequest="68">
+                                        <Grid Padding="5" x:DataType="model:MiningItem">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="70"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="180"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Source="{Binding ImgScr}" WidthRequest="50" HeightRequest="50" Grid.Row="0" Grid.Column="0"/>
+                                        
+                                            <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                                                <Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold" TextColor="Black"/>
+                                                <Label Text="{Binding Profitability, StringFormat='+{0:0.000}/сек'}"/>
+                                            </StackLayout>
+
+                                            <Frame Grid.Row="0" Grid.Column="0" HeightRequest="20" WidthRequest="35" CornerRadius="20" Margin="0"
+                                                   Padding="0" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" BackgroundColor="#6495ED">
+                                                <Label Text="{Binding Value, StringFormat='x{0}'}" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            </Frame>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <Button Text="Click" FontSize="36" WidthRequest="300" HeightRequest="300" Command="{Binding BtnCoinClicked}" BackgroundColor="#00BFFF"
+                        HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" BorderWidth="10" BorderColor="#87CEFA" CornerRadius="180" 
+                        TextColor="White" Margin="0, 0, 0, -90"/>
+            </StackLayout>
+
+            <ContentView x:Name="Window" IsVisible="{Binding ByuMenuState}" BackgroundColor="#C0808080"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"
+                             BackgroundColor="#FFFFFF" WidthRequest="500" HeightRequest="550">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Улучшения" FontSize="22" Padding="10, 3, 0, 0" TextColor="Black"/>
+                        <Label Text=" X " HorizontalOptions="EndAndExpand" FontSize="22" Margin="0, 0, 10, 0" TextColor="Black" VerticalOptions="EndAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SwitchByuMenu}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1"  Color="Gray"/>
+                    
+                    <CollectionView ItemsSource="{Binding UpdateItems}" SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="5, 5, 5, 12" x:DataType="model:MiningItem" Orientation="Vertical" Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="6*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="60"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Image Source="{Binding ImgScr}" HeightRequest="50" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+                                            <StackLayout Orientation="Vertical" Grid.Column="1" Grid.Row="0" HorizontalOptions="FillAndExpand">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+                                                    <Label Text="{Binding Profitability, StringFormat='+{0:0.000}/сек'}" TextColor="#6495ED" HorizontalOptions="EndAndExpand"/>
+                                                </StackLayout>
+
+                                                <Button Text="{Binding Cost, StringFormat='Купить за {0:0.000} coin'}" FontSize="12" HeightRequest="40" WidthRequest="200" 
+                                                    TextColor="White" HorizontalOptions="EndAndExpand" CornerRadius="20" Clicked="BtnByuClicked" BackgroundColor="#6495ED" CommandParameter="{Binding Id}"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1"  Color="#B0C4DE" Margin="10, 14, 10, 0"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

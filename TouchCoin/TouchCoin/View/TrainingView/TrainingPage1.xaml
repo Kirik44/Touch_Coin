@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TouchCoin.View.TrainingPage.TrainingPage1"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="BlueBackground.png"
+             BackgroundColor="#5994fc">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Touch Coin" TextColor="White" FontSize="36" HorizontalTextAlignment="Center" Padding="0, 90, 0, 0" FontAttributes="Bold"/>
+            <Label Text="Нажимайте на кнопку как можно больше - и станьте самым богатым пользователем Touch Coin! Ускорения помогут вам зарабатывать Touch Coin ещё быстрее."
+                       TextColor="White" HorizontalTextAlignment="Center" Padding="16" FontSize="17"/>
+            
+            <StackLayout Padding="20, 0, 20, 0" VerticalOptions="EndAndExpand" Spacing="0">
+                <Frame HasShadow="True" CornerRadius="10" Margin="15, 0, 15, 0" Padding="0">
+                    <Image Source="training1.png"/>
+                </Frame>
+
+                <Button Text="Далее" VerticalOptions="EndAndExpand" Margin="0, -15, 0, 30" Clicked="Further" 
+                        TextColor="#2a50b0" BackgroundColor="White" CornerRadius="8"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
